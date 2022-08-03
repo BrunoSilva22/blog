@@ -1,5 +1,6 @@
 <?php
 
+
 function insert (string $entidade, array $dados) : string
 {
     $instrucao = "INSERT INTO {$entidade}";
@@ -12,6 +13,7 @@ function insert (string $entidade, array $dados) : string
 
     return $instrucao;
 }
+
 
 function update (string $entidade, array $dados, array $criterio = []) : string
 {
