@@ -6,8 +6,8 @@ function insere(string $entidade, array $dados) : bool
 
     foreach ($dados as $campo => $dados) {
         $coringa[$campo] = '?';
-        $tipo[] = gettype($dado) [0];
-        $$campo = $dado;
+        $tipo[] = gettype($dados) [0];
+        $$campo = $dados;
     }
 
     $instrucao = insert($entidade, $coringa);
