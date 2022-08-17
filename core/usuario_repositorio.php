@@ -57,6 +57,12 @@
                 ['id', 'nome', 'email', 'senha', 'adm'],
                 $criterio
             );
+
+            if (count($retorno) > 0) {
+                if (crypt($senha,$salt) == $retorno[0]['senha']) {
+                    $_SESSION['login']['usuario'] = $retorno[0];
+                }
+            }
             break;
     }
 ?>
