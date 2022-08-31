@@ -4,9 +4,9 @@ function insere(string $entidade, array $dados) : bool
 {
     $retorno = false;
 
-    foreach ($dados as $campo => $dados) {
+    foreach ($dados as $campo => $dado) {
         $coringa[$campo] = '?';
-        $tipo[] = gettype($dados) [0];
+        $tipo[] = gettype($dado) [0];
         $$campo = $dados;
     }
 
@@ -168,7 +168,7 @@ string $ordem = null) : array
     $stmt = mysqli_prepare($conexao, $instrucao);
 
     if (isset($tipo)) {
-        $comando = 'mysqli_stmt_bind_param(stmt,';
+        $comando = 'mysqli_stmt_bind_param($stmt,';
         $comando .= "'" . implode('', $tipo). "'";
         $comando .= ', $' . implode(', $', $campos_criterio);
         $comando .= ');';
