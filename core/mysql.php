@@ -7,11 +7,11 @@ function insere(string $entidade, array $dados) : bool
     foreach ($dados as $campo => $dado) {
         $coringa[$campo] = '?';
         $tipo[] = gettype($dado) [0];
-        $$campo = $dados;
+        $$campo = $dado;
     }
 
     $instrucao = insert($entidade, $coringa);
-
+    echo $instrucao;
     $conexao = conecta();
 
     $stmt = mysqli_prepare($conexao, $instrucao);

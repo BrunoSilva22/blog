@@ -21,7 +21,7 @@
                 'email' => $email,
                 'senha' => crypt($senha,$salt)
             ];
-
+            print_r($dados);
             insere(
                 'usuario',
                 $dados
