@@ -142,7 +142,7 @@ string $ordem = null) : array
 {
     $retorno = false;
     $coringa_criterio = [];
-
+    
     foreach ($criterio as $expressao) {
         $dado = $expressao[count($expressao) -1];
 
@@ -158,11 +158,11 @@ string $ordem = null) : array
 
         $campos_criterio[] = $nome_campo;
 
-        $nome_campo = $dado;
+        $$nome_campo = $dado;
     }
 
     $instrucao = select($entidade, $campos, $coringa_criterio, $ordem);
-
+    
     $conexao = conecta();
 
     $stmt = mysqli_prepare($conexao, $instrucao);
