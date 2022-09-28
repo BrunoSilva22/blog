@@ -57,7 +57,7 @@ function atualiza(string $entidade, array $dados, array $criterio = []) : bool
 
         $campos_criterio[] = $nome_campo;
 
-        $nome_campo = $dado;
+        $$nome_campo = $dado;
     }
 
     $instrucao = update($entidade, $coringa_dados, $coringa_criterio);
@@ -67,7 +67,7 @@ function atualiza(string $entidade, array $dados, array $criterio = []) : bool
     $stmt = mysqli_prepare($conexao, $instrucao);
 
     if (isset($tipo)) {
-        $comando = 'mysqli_stmt_bind_param(stmt,';
+        $comando = 'mysqli_stmt_bind_param($stmt,';
         $comando .= "'" . implode('', $tipo). "'";
         $comando .= ', $' . implode(', $', array_keys($dados));
         $comando .= ', $' . implode(', $', $campos_criterio);

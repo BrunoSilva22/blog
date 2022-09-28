@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('America/Sao_Paulo');
 function conecta() : mysqli
 {
     $servidor = 'localhost';
